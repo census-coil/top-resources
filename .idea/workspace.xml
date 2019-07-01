@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88ef912f-0465-408b-976b-ae60e74802cb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/index-hero.png" afterPath="$PROJECT_DIR$/public/img/index-hero.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/involved-hero.jpeg" afterPath="$PROJECT_DIR$/public/img/involved-hero.jpeg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
-    </list>
+    <list default="true" id="88ef912f-0465-408b-976b-ae60e74802cb" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -206,12 +201,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561996534386</updated>
-      <workItem from="1561996536876" duration="10059000" />
+      <workItem from="1561996536876" duration="10233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10059000" />
+    <option name="totallyTimeSpent" value="10233000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
