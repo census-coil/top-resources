@@ -3863,17 +3863,22 @@ nav {
   }
 
 .home-link-active {
-  color:
+  color: #02bfe7;
 }
 
 .splash {
   width: 100%;
   text-align: center;
-  height: 65vh;
-  min-height: 400px;
+  height: 50vh;
+  min-height: 350px;
   background-size: cover;
   background-repeat:no-repeat;
   background-position:center;
+  color: white !important;
+}
+
+.splash-text {
+  color: white;
 }
 
 #index-splash-img {
