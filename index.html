@@ -10,46 +10,12 @@
     <link type="text/css" rel="stylesheet" href="public/css/main.css">
     <script src="public/js/jquery.min.js"></script>
     <script src="public/js/uswds.min.js"></script>
-    <script src="public/js/sprint-ps-menu.js"></script>
-    <script src="public/js/hide-show-toggle.js"></script>
     <link href="public/img/icon.png" rel="icon" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/js/slick/slick.css" charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="public/js/slick/slick-theme.css" charset="UTF-8"/>
     <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
-    <script>
-      $(document).ready(function(){
-        $('#action-links-mobile').slick({
-          dots: true,
-          arrows: false,
-          responsive: [
-            {
-              breakpoint: 375,
-              settings: {
-                speed: 300,
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
-        }),
-        $('#in-the-media-links-mobile').slick({
-          arrows: false,
-          dots: true,
-          responsive: [
-            {
-              breakpoint: 375,
-              settings: {
-                speed: 300,
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
-        });
-      });
-    </script>
   </head>
 
 <body>
@@ -82,21 +48,12 @@
       </div>
     </div>
 
-  <!--<section id="what-is" class="gray-section">-->
-    <!--<div class="usa-grid">-->
-      <!--<div class="usa-width-one-half">-->
-        <!--<h2> Welcome to the Workforce Corhort! </h2>-->
-        <!--<p> We're so excited to have you here. Use this website as a portal for supplemental information about the sprint process as it unfolds.  </p>-->
-      <!--</div>-->
-      <!--<div class="usa-width-one-half">-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</section>-->
-
     <section id="this-week" class="white-section">
     <div class="usa-grid">
       <div class="usa-width-one-whole">
         <h2> TOP Weekly Summaries </h2>
+
+        <div id="weekly-summaries-progress"></div>
 
         <table id="weekly-summaries" class="usa-table-borderless">
           <colgroup>
@@ -107,6 +64,8 @@
             <tr class="active-week">
               <td class="weekly-summaries-date">
                 7/1 - 7/8 &rarr;
+                <br>
+                Week 1
               </td>
               <td>
                 <h4>This Week</h4>
@@ -301,5 +260,8 @@
     <script src="public/js/smooth-scroll.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="public/js/slick/slick.min.js"></script>
+    <script src="public/js/raphael.js"></script>
+    <script src="public/js/progressStep.js"></script>
+    <script src="public/js/main.js"></script>
 </body>
 </html>

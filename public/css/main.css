@@ -1578,6 +1578,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   vertical-align: top;
 }
 
+#weekly-summaries-progress {
+  height: 50px;
+}
+
+.weekly-summaries-progress-active {
+  color: white;
+  fill: black;
+  background-color: black;
+}
+
 tr.active-week {
   background-color: #595caa;
   color: white;
