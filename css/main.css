@@ -1583,6 +1583,11 @@ tr.active-week {
   color: white;
 }
 
+tr:hover {
+  background-color: #dcddf5;
+  color: black;
+}
+
 tr>th {
   background-color: #595caa;
   color: white;
