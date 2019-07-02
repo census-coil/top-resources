@@ -1588,6 +1588,38 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   background-color: black;
 }
 
+@keyframes blinking {
+  0% {
+  opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.blinking-circle {
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: .25;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #f5428a;
+  top: 50%;
+  left: 50%;
+  -webkit-animation: blinking 1s infinite;
+  -moz-animation: blinking 1s infinite;
+  -o-animation: blinking 1s infinite;
+  animation: blinking 1s infinite;
+}
+
+
 tr.active-week {
   background-color: #595caa;
   color: white;
@@ -2665,6 +2697,23 @@ li.usa-footer-primary-content {
   @media screen and (min-width: 600px) {
     .usa-footer-contact-heading {
       margin-top: 1rem; } }
+
+
+canvas {
+  /*display: block;*/
+  vertical-align: bottom;
+}
+
+#particles-js {
+  /*position: absolute;*/
+  /*width: 100%;*/
+  /*height: 30%;*/
+}
+
+.particles-js-canvas-el {
+  bottom: 0px;
+  background-color:#1c1f81;
+}
 
 .usa-social_link, .usa-link-facebook, .usa-link-twitter, .usa-link-youtube, .usa-link-rss {
   margin: 2.5rem 1rem 1.5rem 0;
@@ -5070,3 +5119,6 @@ footer {
   padding-bottom: 10px;
   vertical-align: middle;
 }
+
+
+

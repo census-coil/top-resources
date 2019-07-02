@@ -79,7 +79,7 @@
             }
             step.highlight.attr("opacity", opacity);
             step.label.attr("fill", labelColor);
-            step.addClass("weekly-summaries-progress-active");
+            // step.addClass("weekly-summaries-progress-active");
             step.number.attr("fill", numberColor);
             step.active = active;
         }
