@@ -2711,12 +2711,6 @@ canvas {
   vertical-align: bottom;
 }
 
-#particles-js {
-  /*position: absolute;*/
-  /*width: 100%;*/
-  /*height: 30%;*/
-}
-
 .particles-js-canvas-el {
   bottom: 0px;
   background-color:#1c1f81;
@@ -5175,7 +5169,7 @@ footer {
   margin: 100px 0px;
 }
 .scrolling-text-left {
-  height: 150px;
+  height: 185px;
   overflow: hidden;
   position: relative;
   white-space: nowrap;
@@ -5191,7 +5185,7 @@ footer {
   height: 100%;
   margin: 0;
   margin-bottom: 40px;
-  line-height: 150px;
+  line-height: 185px;
   text-align: center;
 }
 
