@@ -287,7 +287,7 @@
     //* Class defaults
     //--------------------------------------------------------------------------
     $.fn.progressStep.defaults = {
-        activeColor: "#f5428a",
+        activeColor: "#F5534F",
         strokeColor: "#1c1f81",
         fillColor: "#fff",
         visitedFillColor: "#ff8fba",
