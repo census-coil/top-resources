@@ -292,10 +292,10 @@
         fillColor: "#fff",
         visitedFillColor: "#ff8fba",
         margin: 10,
-        radius: 15,
+        radius: 20,
         labelOffset: 30,
         "font-family": "'GT-America','Helvetica Neue', 'Helvetica', Arial, sans-serif",
-        "font-size": 10,
+        "font-size": 12,
         "font-weight": "normal"
     };
 }(jQuery));

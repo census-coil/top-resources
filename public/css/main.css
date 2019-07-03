@@ -1579,7 +1579,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 }
 
 #weekly-summaries-progress {
-  height: 50px;
+  height: 100px;
 }
 
 .weekly-summaries-progress-active {
@@ -1620,7 +1620,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 }
 
 
-tr.active-week {
+tr.active-week, tr.active-week:hover {
   background-color: #595caa;
   color: white;
 }
@@ -1729,11 +1729,18 @@ h1 {
 h2 {
   font-size: 3rem;
   font-weight: 700;
-  color: #1c1f81;}
+  color: #1c1f81;
+  margin-bottom: 30px;
+}
 
 h3 {
-  font-size: 2rem;
-  font-weight: 700; }
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1c1f81;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
 
 h4 {
   font-size: 1.7rem;
@@ -3929,7 +3936,7 @@ nav {
   width: 100%;
   text-align: center;
   height: 50vh;
-  min-height: 350px;
+  min-height: 500px;
   background-size: cover;
   background-repeat:no-repeat;
   background-position:center;
@@ -5160,4 +5167,94 @@ footer {
 .matrix-active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
   color: #FFF !important;
+}
+
+
+
+.scrolling-text {
+  margin: 100px 0px;
+}
+.scrolling-text-left {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  display: block;
+  margin: 5px 0px;
+}
+.scrolling-text-left > span {
+  /*display: inline;*/
+  font-size: 10em;
+  color: #dcddf5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  margin-bottom: 40px;
+  line-height: 150px;
+  text-align: center;
+}
+
+.scrolling-batch-1 {
+  /* Starting position */
+  -moz-transform:translateX(50%);
+  -webkit-transform:translateX(50%);
+  transform:translateX(50%);
+  /* Apply animation to this element */
+  -moz-animation: scrolling-text-left 90s linear infinite;
+  -webkit-animation: scrolling-text-left 90s linear infinite;
+  animation: scrolling-text-left 90s linear infinite;
+}
+
+.scrolling-batch-2 {
+  /* Starting position */
+  -moz-transform:translateX(25%);
+  -webkit-transform:translateX(25%);
+  transform:translateX(25%);
+  /* Apply animation to this element */
+  -moz-animation: scrolling-text-left 60s linear infinite;
+  -webkit-animation: scrolling-text-left 60s linear infinite;
+  animation: scrolling-text-left 60s linear infinite;
+}
+
+.scrolling-batch-3 {
+  /* Starting position */
+  -moz-transform:translateX(0%);
+  -webkit-transform:translateX(0%);
+  transform:translateX(0%);
+  /* Apply animation to this element */
+  -moz-animation: scrolling-text-left 75s linear infinite;
+  -webkit-animation: scrolling-text-left 75s linear infinite;
+  animation: scrolling-text-left 75s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes scrolling-text-left {
+  0%   { -moz-transform: translateX(0%); }
+  100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scrolling-text-left {
+  0%   { -webkit-transform: translateX(0%); }
+  100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scrolling-text-left {
+  0%   {
+    -moz-transform: translateX(0%); /* Firefox bug fix */
+    -webkit-transform: translateX(0%); /* Firefox bug fix */
+    transform: translateX(0%);
+  }
+  100% {
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-text-darker {
+  color: #7c7fcf;
+  opacity: 0.8;
+}
+
+.scrolling-text-darker:hover {
+  opacity: 1;
 }
