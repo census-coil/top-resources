@@ -74,12 +74,9 @@
                 labelColor = _options.activeColor;
                 numberColor = _options.fillColor;
             }
-            else if (step.visited) {
-                step.circle.attr("fill", _options.visitedFillColor);
-            }
             step.highlight.attr("opacity", opacity);
             step.label.attr("fill", labelColor);
-            // step.addClass("weekly-summaries-progress-active");
+            step.circle.attr("stroke",_options.activeColor);
             step.number.attr("fill", numberColor);
             step.active = active;
         }
@@ -167,8 +164,8 @@
                 stroke: _options.strokeColor,
                 "stroke-width": 2
             });
-            
-            var highlight = _paper.circle(0, 0, _options.radius - 3);
+
+            var highlight = _paper.circle(0, 0, _options.radius);
             highlight.attr({
                 fill: _options.activeColor,
                 "stroke-width": 0,
@@ -241,6 +238,93 @@
             
             return step;
         };
+
+
+        this.addVisitedStep = function(name) {
+            if (name == undefined) {
+                name = "";
+            }
+
+            var circle = _paper.circle(0, 0, _options.radius - 1);
+            circle.attr({
+                fill: _options.visitedFillColor,
+                stroke: _options.activeColor,
+                "stroke-width": 2
+            });
+
+            var highlight = _paper.circle(0, 0, _options.radius - 3);
+            highlight.attr({
+                fill: _options.fillColor,
+                "stroke-width": 0,
+                opacity: 0
+            });
+
+            var label = _paper.text(0, 0, name);
+            label.attr({
+                "text-anchor": "middle",
+                stroke: "none",
+                fill: _options.activeColor,
+                "font-family": _options["font-family"],
+                "font-size": _options["font-size"],
+                "font-weight": _options["font-weight"]
+            });
+
+            var stepIndex = _steps.length;
+            var number = _paper.text(0, 0, (stepIndex + 1));
+            number.attr({
+                "text-anchor": "middle",
+                stroke: "none",
+                fill: _options.fillColor,
+                "font-family": _options["font-family"],
+                "font-size": _options.radius,
+                "font-weight": _options["font-weight"]
+            });
+
+            var step = {
+                name: name,
+                circle: circle,
+                highlight: highlight,
+                label: label,
+                number: number,
+                active: false,
+                visited: true,
+                index: stepIndex,
+                onClick: function() { return false; },
+                beforeEntry: function() { return true; },
+                afterEntry: function() {},
+                beforeExit: function() { return true; },
+                afterExit: function() {},
+                setVisited: function(visited) {
+                    if (this.active) {
+                        // continue
+                    }
+                    else {
+                        var fillColor = _options.fillColor;
+                        if (visited) {
+                            fillColor = _options.visitedFillColor;
+                        }
+                        this.circle.attr("fill", fillColor);
+                    }
+                    this.visited = visited;
+                }
+            };
+
+            var onStepClick = function () {
+                if (_clickEnabled) {
+                    if (step.onClick.call(step)) {
+                        _progress.setCurrentStep(step.index);
+                    }
+                }
+            };
+
+            circle.click(onStepClick);
+            highlight.click(onStepClick);
+            number.click(onStepClick);
+
+            _steps.push(step);
+
+            return step;
+        };
         
         this.refreshLayout = function() {
             _paper.setSize(this.width(), this.height());
@@ -290,7 +374,7 @@
         activeColor: "#F5534F",
         strokeColor: "#1c1f81",
         fillColor: "#fff",
-        visitedFillColor: "#ff8fba",
+        visitedFillColor: "#F3B900",
         margin: 10,
         radius: 20,
         labelOffset: 30,

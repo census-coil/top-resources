@@ -30,6 +30,7 @@ $(document).ready(function(){
     var progressDiv = $("#weekly-summaries-progress");
     var progressBar = progressDiv.progressStep();
 
+    progressBar.addVisitedStep("Week 0");
     progressBar.addStep("Week 1");
     progressBar.addStep("Week 2");
     progressBar.addStep("Week 3");
@@ -43,7 +44,7 @@ $(document).ready(function(){
     progressBar.addStep("Week 11");
     progressBar.addStep("Week 12");
     progressBar.refreshLayout();
-    progressBar.setCurrentStep(0);
+    progressBar.setCurrentStep(1);
 
 
     //Matrix accordion (vertical)
