@@ -30,19 +30,30 @@ $(document).ready(function(){
     var progressDiv = $("#weekly-summaries-progress");
     var progressBar = progressDiv.progressStep();
 
-    progressBar.addVisitedStep("Week 0");
-    progressBar.addStep("Week 1");
-    progressBar.addStep("Week 2");
-    progressBar.addStep("Week 3");
-    progressBar.addStep("Week 4");
-    progressBar.addStep("Week 5");
-    progressBar.addStep("Week 6");
-    progressBar.addStep("Week 7");
-    progressBar.addStep("Week 8");
-    progressBar.addStep("Week 9");
-    progressBar.addStep("Week 10");
-    progressBar.addStep("Week 11");
-    progressBar.addStep("Week 12");
+    progressBar.addVisitedStep("Week 1");
+    for (var i = 1; i<13; i++) {
+        progressBar.addStep("Week "+(i+1));
+    }
+    // progressBar.addStep("Week 2");
+    // progressBar.addStep("Week 3");
+    // progressBar.addStep("Week 4");
+    // progressBar.addStep("Week 5");
+    // progressBar.addStep("Week 6");
+    // progressBar.addStep("Week 7");
+    // progressBar.addStep("Week 8");
+    // progressBar.addStep("Week 9");
+    // progressBar.addStep("Week 10");
+    // progressBar.addStep("Week 11");
+    // progressBar.addStep("Week 12");
+
+    for (var stepCounter = 0; stepCounter < 5; stepCounter++) {
+        var currentStep = $progressBar.getStep(stepCounter);
+        currentStep.onClick = onClick;
+        currentStep.beforeEntry = beforeEntry;
+        currentStep.afterEntry = afterEntry;
+        currentStep.beforeExit = beforeExit;
+        currentStep.afterExit = afterExit;
+    }
     progressBar.refreshLayout();
     progressBar.setCurrentStep(1);
 
