@@ -3680,7 +3680,7 @@ input[type=search] {
 
 .usa-section {
   padding-top: 3rem;
-  padding-bottom: 3rem; }
+  padding-bottom: 7rem; }
   @media screen and (min-width: 600px) {
     .usa-section {
       padding-top: 6rem;
@@ -5254,4 +5254,69 @@ footer {
 .scrolling-text-darker:hover {
   opacity: 0.7;
   color: #F3B900;
+}
+
+
+.matrix-horizontal-accordion {
+}
+
+.accordion-item{
+  width:5%;
+  height:80vh;
+  float:left;
+  background-color: #595caa;
+  color: #fff !important;
+  border:1px solid #fff;
+  cursor:pointer;
+}
+
+.accordion-title {
+  color: #fff;
+  transform-origin: bottom center;
+  transform: rotate(-90deg);
+  width: 50vh;
+  height: 5vw;
+  margin-top: 30vh;
+  margin-left: -15vh;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.accordion-item:hover {
+  background-color: #1c1f81;
+}
+
+.accordion-info{
+  height:80vh;
+  float:left;
+  background-color:#dcddf5;
+  width:0;
+  display:none;
+  color: rgb(20,20,20);
+}
+
+.accordion-info-content {
+  padding: 8%;
+}
+
+.accordion-info-title {
+  font-family: "GT-America-Medium";
+  font-weight: 800;
+}
+
+.accordion-info-agency {
+  font-style: italic;
+}
+
+.accordion-info-header {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight:800;
+  font-family: "GT-America-Medium";
+  font-size: 0.8em;
+  margin-top: 2em;
+}
+
+.accordion-info-participants {
+  margin-bottom: 20px;
 }
