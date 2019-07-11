@@ -103,11 +103,13 @@ $(document).ready(function(){
 
 
     $(function() {
-        var itemID = this.id;
-        if (!itemID == $(".active-accordion-item") || itemID == undefined) {
-            "use strict";
-            $('.accordion-info').first().show().animate({width: '80%'});
-            $('.accordion-item').click(function () {
+        $('.accordion-info').first().show().animate({width: '80%'});
+        $('.accordion-item').click(function () {
+            var itemID = this.id;
+            console.log(this);
+            if (itemID != $(".active-accordion-item") || itemID == undefined) {
+                "use strict";
+                itemID = itemID == undefined ? "accordion-item-1" : this.id;
                 $(".accordion-item").removeClass("active-accordion-item");
                 $("#" + itemID).addClass("active-accordion-item");
                 $(this).next()
@@ -116,7 +118,7 @@ $(document).ready(function(){
                     .animate({opacity: 1})
                     .siblings(".accordion-info")
                     .animate({opacity: 0, width: '0%'});
-            });
-        }
+            };
+        });
     });
 });

@@ -5296,8 +5296,9 @@ footer {
 .accordion-info{
   height:80vh;
   float:left;
-  background-color:#dcddf5;
+  /*background-color:#dcddf5;*/
   display: none;
+  background-color: #F8E9E9;
   width:0;
   color: rgb(20,20,20);
 }
