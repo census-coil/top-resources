@@ -105,7 +105,7 @@ function progressBarSetup(){
         }
 
         for (var i = 1; i<13; i++) {
-            progressBar.addStep("Week "+(i+1));
+            progressBar.addStep("Week "+(i));
             // var currentStep = progressBar.getStep(i);
             // currentStep.onClick = onClick;
             // currentStep.beforeEntry = beforeEntry;
