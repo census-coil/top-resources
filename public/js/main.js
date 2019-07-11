@@ -103,15 +103,20 @@ $(document).ready(function(){
 
 
     $(function() {
-        "use strict";
-        $('.accordion-info').first().show().animate({width: '80%'});
-        $('.accordion-item').click(function() {
-            $(this).next().show()
-                .animate({width: '80%'})
-                .siblings(".accordion-info")
-                .animate({width: '0%'});
-        });
+        var itemID = this.id;
+        if (!itemID == $(".active-accordion-item") || itemID == undefined) {
+            "use strict";
+            $('.accordion-info').first().show().animate({width: '80%'});
+            $('.accordion-item').click(function () {
+                $(".accordion-item").removeClass("active-accordion-item");
+                $("#" + itemID).addClass("active-accordion-item");
+                $(this).next()
+                    .show()
+                    .animate({width: '80%'})
+                    .animate({opacity: 1})
+                    .siblings(".accordion-info")
+                    .animate({opacity: 0, width: '0%'});
+            });
+        }
     });
-
-
 });

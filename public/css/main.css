@@ -5258,6 +5258,9 @@ footer {
 
 
 .matrix-horizontal-accordion {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
 }
 
 .accordion-item{
@@ -5272,13 +5275,17 @@ footer {
 
 .accordion-title {
   color: #fff;
-  transform-origin: bottom center;
   transform: rotate(-90deg);
-  width: 50vh;
-  height: 5vw;
-  margin-top: 30vh;
-  margin-left: -15vh;
+  transform-origin: top right;
+  width: 80vh;
+  height: 3vw;
+  margin-left: -80vh;
   text-align: center;
+  display: table;
+}
+
+.accordion-title>span{
+  display: table-cell;
   vertical-align: middle;
 }
 
@@ -5290,8 +5297,8 @@ footer {
   height:80vh;
   float:left;
   background-color:#dcddf5;
+  display: none;
   width:0;
-  display:none;
   color: rgb(20,20,20);
 }
 
@@ -5319,4 +5326,8 @@ footer {
 
 .accordion-info-participants {
   margin-bottom: 20px;
+}
+
+.active-accordion-item {
+ background-color: #F5534F;;
 }
