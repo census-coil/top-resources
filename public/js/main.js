@@ -60,7 +60,6 @@ function progressBarSetup(){
             delete milestones[""];
             d.milestones = milestones;
             tableContents[parseInt(d["week-number"])] = d;
-            console.log(tableContents);
         });
 
         tableHTML = "";
@@ -91,7 +90,6 @@ function progressBarSetup(){
         });
         tableHTML += '</ul></td></tr>';
 
-        console.log(tableHTML);
         $("#weekly-summaries-tbody").html(tableHTML);
 
 
@@ -148,10 +146,9 @@ function matrixAccordion(){
     $('.accordion-info').first().show().animate({width: '80%'});
     $('.accordion-item').click(function () {
         var itemID = this.id;
-        console.log(this);
         if (itemID != $(".active-accordion-item") || itemID == undefined) {
             "use strict";
-            itemID = itemID == undefined ? "accordion-item-1" : this.id;
+            itemID = itemID == undefined ? "accordion-item-0" : this.id;
             $(".accordion-item").removeClass("active-accordion-item");
             $("#" + itemID).addClass("active-accordion-item");
             $(this).next()
@@ -162,4 +159,47 @@ function matrixAccordion(){
                 .animate({opacity: 0, width: '0%'});
         };
     });
+
+    var accordionBackendUrl = "https://docs.google.com/spreadsheets/d/1eRPECxenheM2PjDvj5lNOboW9I8okZMvNdAYOuGBzso/pubhtml";
+    var problemLabels = ["opp-zones", "pathways", "talent", "entrepreneurship"];
+    var roles = ["tech", "ua", "product"];
+
+    function init() {
+        Tabletop.init( { key: accordionBackendUrl,
+            callback: loadProblemStatements,
+            simpleSheet: true } )
+    }
+
+    function loadProblemStatements(data, tabletop) {
+        problemStatements = {}
+
+        problemLabels.forEach(function(label, i){
+            psContents = {}
+            roles.forEach(function(l){psContents[l]=[];});
+            psContents["index"] = i;
+            problemStatements[label] = psContents;
+        });
+
+        console.log(problemStatements);
+        data.forEach( function(d){
+            if (d["name"] != "") {
+                problemStatements[d["problem-statement"]][d["role"]].push([d["name"],d["link-to-logo-img"]]);
+            }
+        });
+
+        problemLabels.forEach( function(ps){
+            index = problemStatements[ps]["index"];
+            psIdPrefix = "accordion-" + index + "-";
+
+            roles.forEach(function(role) {
+                roleHTML = "";
+                problemStatements[ps][role].forEach( function(participant){
+                    roleHTML += participant[0]+"<br>";
+                });
+                $("#" + psIdPrefix + role).html(roleHTML);
+            });
+        });
+    }
+
+    init();
 }

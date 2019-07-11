@@ -5301,10 +5301,12 @@ footer {
   background-color: #F8E9E9;
   width:0;
   color: rgb(20,20,20);
+  overflow: scroll;
 }
 
 .accordion-info-content {
   padding: 8%;
+  overflow: scroll;
 }
 
 .accordion-info-title {
