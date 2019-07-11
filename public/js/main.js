@@ -189,14 +189,18 @@ function matrixAccordion(){
 
         problemLabels.forEach( function(ps){
             index = problemStatements[ps]["index"];
-            psIdPrefix = "accordion-" + index + "-";
+            psIdPrefix = "#accordion-" + index + "-";
 
             roles.forEach(function(role) {
                 roleHTML = "";
                 problemStatements[ps][role].forEach( function(participant){
                     roleHTML += participant[0]+"<br>";
                 });
-                $("#" + psIdPrefix + role).html(roleHTML);
+                $(psIdPrefix + role).html(roleHTML);
+
+                if (problemStatements[ps][role].length == 0){
+                    $(psIdPrefix + role + "-header").hide();
+                }
             });
         });
     }
