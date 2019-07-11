@@ -183,7 +183,7 @@
             });
             
             var stepIndex = _steps.length;
-            var number = _paper.text(0, 0, (stepIndex + 1));
+            var number = _paper.text(0, 0, (stepIndex));
             number.attr({
                 "text-anchor": "middle",
                 stroke: "none",
@@ -270,7 +270,7 @@
             });
 
             var stepIndex = _steps.length;
-            var number = _paper.text(0, 0, (stepIndex + 1));
+            var number = _paper.text(0, 0, (stepIndex));
             number.attr({
                 "text-anchor": "middle",
                 stroke: "none",

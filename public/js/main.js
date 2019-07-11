@@ -39,6 +39,88 @@ $(document).ready(function(){
 
 // Progress Bar Setup
 function progressBarSetup(){
+    var activeWeek = -1;
+    var publicSpreadsheetUrl= "https://docs.google.com/spreadsheets/d/11b6Zm5Pl4AnnAQMHn7yrvyrsDmojHRzsgPYeLrJR90c/pubhtml";
+
+    function init() {
+        Tabletop.init( { key: publicSpreadsheetUrl,
+            callback: loadTable,
+            simpleSheet: true } )
+    }
+
+    function loadTable(data, tabletop) {
+        maxMilestones = 5;
+        tableContents = {}
+        data.forEach( function(d){
+            milestones = {};
+            for (var i=1; i < maxMilestones; i++) {
+                milestones[d["milestone-" + i + "-name"]] = d["milestone-" + i + "-description"] ;
+            }
+            milestones[""] == "";
+            delete milestones[""];
+            d.milestones = milestones;
+            tableContents[parseInt(d["week-number"])] = d;
+            console.log(tableContents);
+        });
+
+        tableHTML = "";
+        Object.keys(tableContents).sort().reverse().forEach(function(weekNumber){
+            week = tableContents[weekNumber];
+            if (week["is-active"] == "TRUE") {
+                activeWeek = weekNumber;
+            }
+
+            tableHTML += '<tr ';
+            tableHTML += week["is-active"] == "TRUE" ? 'class="active-week"' : "";
+            tableHTML += '><td class="weekly-summaries-date">'
+            + week['week-dates']
+            + '&rarr;<br>Week '
+            + week['week-number']
+            + '</td><td>';
+            tableHTML += week["is-active"] == "TRUE" ?  '<h4><div class="blinking-circle"></div>This Week</h4>' : '';
+            tableHTML += '<ul>';
+
+            Object.keys(week['milestones']).forEach( function(m){
+                tableHTML +=
+                    '<li><strong>'
+                    + m
+                    + '</strong><br>'
+                    + week.milestones[m]
+                    + '</li>';
+            })
+        });
+        tableHTML += '</ul></td></tr>';
+
+        console.log(tableHTML);
+        $("#weekly-summaries-tbody").html(tableHTML);
+
+
+
+        var progressDiv = $("#weekly-summaries-progress");
+        var progressBar = progressDiv.progressStep();
+
+
+        for (var i = 0; i<activeWeek; i++){
+            progressBar.addVisitedStep("Week " + i);
+        }
+
+        for (var i = 1; i<13; i++) {
+            progressBar.addStep("Week "+(i+1));
+            // var currentStep = progressBar.getStep(i);
+            // currentStep.onClick = onClick;
+            // currentStep.beforeEntry = beforeEntry;
+            // currentStep.afterEntry = afterEntry;
+            // currentStep.beforeExit = beforeExit;
+            // currentStep.afterExit = afterExit;
+        }
+
+        progressBar.refreshLayout();
+        progressBar.setCurrentStep(activeWeek);
+    }
+
+    init();
+
+
     function beforeEntry(){
 
     }
@@ -58,23 +140,6 @@ function progressBarSetup(){
     function onClick(){
 
     }
-
-    var progressDiv = $("#weekly-summaries-progress");
-    var progressBar = progressDiv.progressStep();
-
-    progressBar.addVisitedStep("Week 1");
-    for (var i = 1; i<13; i++) {
-        progressBar.addStep("Week "+(i+1));
-        // var currentStep = progressBar.getStep(i);
-        // currentStep.onClick = onClick;
-        // currentStep.beforeEntry = beforeEntry;
-        // currentStep.afterEntry = afterEntry;
-        // currentStep.beforeExit = beforeExit;
-        // currentStep.afterExit = afterExit;
-    }
-
-    progressBar.refreshLayout();
-    progressBar.setCurrentStep(1);
 }
 
 
