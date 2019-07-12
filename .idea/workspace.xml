@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88ef912f-0465-408b-976b-ae60e74802cb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,10 +35,10 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="5264" column="28" lean-forward="false" selection-start-line="5264" selection-start-column="28" selection-end-line="5264" selection-end-column="28" />
+            <state relative-caret-position="396">
+              <caret line="5390" column="19" lean-forward="false" selection-start-line="5390" selection-start-column="19" selection-end-line="5390" selection-end-column="19" />
               <folding>
-                <marker date="1562951936779" expanded="true" signature="138661:138683" ph="..." />
+                <marker date="1562952045615" expanded="true" signature="138661:138683" ph="..." />
               </folding>
             </state>
           </provider>
@@ -231,12 +229,12 @@
       <updated>1561996534386</updated>
       <workItem from="1561996536876" duration="22078000" />
       <workItem from="1562603047717" duration="1449000" />
-      <workItem from="1562783182717" duration="23880000" />
+      <workItem from="1562783182717" duration="23964000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47407000" />
+    <option name="totallyTimeSpent" value="47491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -290,7 +288,7 @@
         <state relative-caret-position="77100">
           <caret line="5140" column="27" lean-forward="false" selection-start-line="5140" selection-start-column="27" selection-end-line="5140" selection-end-column="27" />
           <folding>
-            <marker date="1562951936779" expanded="true" signature="138661:138683" ph="..." />
+            <marker date="1562952045615" expanded="true" signature="138661:138683" ph="..." />
           </folding>
         </state>
       </provider>
@@ -354,7 +352,7 @@
         <state relative-caret-position="77100">
           <caret line="5140" column="27" lean-forward="false" selection-start-line="5140" selection-start-column="27" selection-end-line="5140" selection-end-column="27" />
           <folding>
-            <marker date="1562951936779" expanded="true" signature="138661:138683" ph="..." />
+            <marker date="1562952045615" expanded="true" signature="138661:138683" ph="..." />
           </folding>
         </state>
       </provider>
@@ -398,10 +396,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="5264" column="28" lean-forward="false" selection-start-line="5264" selection-start-column="28" selection-end-line="5264" selection-end-column="28" />
+        <state relative-caret-position="396">
+          <caret line="5390" column="19" lean-forward="false" selection-start-line="5390" selection-start-column="19" selection-end-line="5390" selection-end-column="19" />
           <folding>
-            <marker date="1562951936779" expanded="true" signature="138661:138683" ph="..." />
+            <marker date="1562952045615" expanded="true" signature="138661:138683" ph="..." />
           </folding>
         </state>
       </provider>
