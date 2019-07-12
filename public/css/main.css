@@ -5350,6 +5350,7 @@ footer {
   background-color: rgba(245,83,79, 0.1);
   padding: 1em;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .accordion-participant-img {
