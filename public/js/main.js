@@ -161,7 +161,7 @@ function matrixAccordion(){
     });
 
     var accordionBackendUrl = "https://docs.google.com/spreadsheets/d/1eRPECxenheM2PjDvj5lNOboW9I8okZMvNdAYOuGBzso/pubhtml";
-    var problemLabels = ["opp-zones", "pathways", "talent", "entrepreneurship"];
+    var problemLabels = ["opp-zones", "pathways", "talent-modernization", "entrepreneurship"];
     var roles = ["tech", "ua", "product"];
 
     function init() {
@@ -182,7 +182,8 @@ function matrixAccordion(){
 
         console.log(problemStatements);
         data.forEach( function(d){
-            if (d["name"] != "") {
+            if (d["name"] != "" && d["problem-statement"] != "") {
+                console.log(d);
                 problemStatements[d["problem-statement"]][d["role"]].push([d["name"],d["link-to-logo-img"]]);
             }
         });
