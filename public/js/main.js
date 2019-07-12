@@ -185,9 +185,14 @@ function matrixAccordion(){
 
         data.forEach( function(d){
             if (d["name"] != "" && d["problem-statement"] != "") {
-                problemStatements[d["problem-statement"]][d["role"]].push([d["name"],d["link-to-logo-img"]]);
+                participant = {}
+                participant.name = d["name"];
+                participant.imgpath = d["link-to-logo-img"];
+                participant.url = d["link-to-website"];
+                problemStatements[d["problem-statement"]][d["role"]].push(participant);
             }
         });
+        console.log(problemStatements);
 
         problemLabels.forEach( function(ps){
             index = problemStatements[ps]["index"];
@@ -195,12 +200,20 @@ function matrixAccordion(){
 
             roles.forEach(function(role) {
                 roleHTML = "";
-                problemStatements[ps][role].forEach( function(participant) {
-                    roleHTML += '<div class="accordion-participant">';
-                    roleHTML += participant[1] != "" ?
-                        '<img class="accordion-participant-img" src="' + participant[1] + '" name="' + participant[0] + '"></div>'
-                        : participant[0] + '</div>';
-                });
+                if (role == "tech"){
+                    problemStatements[ps][role].forEach( function(participant) {
+                        roleHTML += '<div class="accordion-participant">';
+                        roleHTML += participant.url == "" ? "" : "<a href='" + participant.url + "'>";
+                        roleHTML += participant.imgpath != "" ?
+                            '<img class="accordion-participant-img" src="' + participant.imgpath + '" name="' + participant.name + '">'
+                            : participant.name;
+                        roleHTML += participant.url == "" ? "</div>" : "</a></div>";
+                    });
+                }
+                else {
+                    roleHTML += problemStatements[ps][role].map(function(participant){ return participant.name; }).join("<br>");
+                }
+
                 $(psIdPrefix + role).html(roleHTML);
 
                 if (problemStatements[ps][role].length == 0){
