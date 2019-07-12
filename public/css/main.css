@@ -5257,10 +5257,12 @@ footer {
 }
 
 
-.matrix-horizontal-accordion {
+#matrix-horizontal-accordion {
   width: 100%;
   height: 80vh;
   overflow: hidden;
+  position: relative;
+  background-color: #F8E9E9;
 }
 
 .accordion-item{
@@ -5365,4 +5367,41 @@ footer {
   margin-top: -0.5em;
   align-items: center;
   vertical-align: middle;
+}
+
+#matrix-horizontal-accordion.fullscreen{
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#matrix-fullscreen {
+  z-index: 9999;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 0.8em;
+  border-radius: 0.5em;
+  background-color: #1c1f81;
+  padding: 0.5em;
+  min-width: 80px;
+}
+
+#matrix-fullscreen:hover {
+  background-color: #1c1f81;
+}
+
+.accordion-info.fullscreen {
+  height: 100vh;
+}
+
+.accordion-title.fullsceren {
+  width: 100vh;
+}
+
+.accordion-item.fullscreen {
+  height: 100vh;
 }

@@ -142,6 +142,7 @@ function progressBarSetup(){
 
 // Code for matrix accordion in the "Meet the Cohort" section
 function matrixAccordion(){
+    // Show, hide and slide for matrix interaction
     $('.accordion-info').first().show().animate({width: '80%'});
     $('.accordion-item').click(function () {
         var itemID = this.id;
@@ -157,6 +158,16 @@ function matrixAccordion(){
                 .siblings(".accordion-info")
                 .animate({opacity: 0, width: '0%'});
         };
+    });
+
+    //Fullscreen mode
+    $('#matrix-fullscreen').click(function(e){
+        $('#matrix-horizontal-accordion').toggleClass('fullscreen');
+        $('.accordion-info').toggleClass('fullscreen');
+        $('.accordion-item').toggleClass('fullscreen');
+        $('.accordion-title').toggleClass('fullscreen');
+        buttonText = $("#matrix-fullscreen").text() == "Expand" ? "Close" : "Expand";
+        $('#matrix-fullscreen').text(buttonText);
     });
 
 
