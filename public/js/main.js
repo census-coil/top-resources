@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     // Mobile breakpoints
     $('#action-links-mobile').slick({
         dots: true,
@@ -160,6 +159,8 @@ function matrixAccordion(){
         };
     });
 
+
+    // Set up for Google Sheets integration
     var accordionBackendUrl = "https://docs.google.com/spreadsheets/d/1eRPECxenheM2PjDvj5lNOboW9I8okZMvNdAYOuGBzso/pubhtml";
     var problemLabels = ["opp-zones", "pathways", "talent-modernization", "entrepreneurship"];
     var roles = ["tech", "ua", "product"];
@@ -170,20 +171,20 @@ function matrixAccordion(){
             simpleSheet: true } )
     }
 
+
+    // Process and validate data, and create HTML for contents
     function loadProblemStatements(data, tabletop) {
         problemStatements = {}
 
         problemLabels.forEach(function(label, i){
             psContents = {}
-            roles.forEach(function(l){psContents[l]=[];});
+            roles.forEach( function(l) {psContents[l]=[]; });
             psContents["index"] = i;
             problemStatements[label] = psContents;
         });
 
-        console.log(problemStatements);
         data.forEach( function(d){
             if (d["name"] != "" && d["problem-statement"] != "") {
-                console.log(d);
                 problemStatements[d["problem-statement"]][d["role"]].push([d["name"],d["link-to-logo-img"]]);
             }
         });
@@ -194,8 +195,11 @@ function matrixAccordion(){
 
             roles.forEach(function(role) {
                 roleHTML = "";
-                problemStatements[ps][role].forEach( function(participant){
-                    roleHTML += participant[0]+"<br>";
+                problemStatements[ps][role].forEach( function(participant) {
+                    roleHTML += '<div class="accordion-participant">';
+                    roleHTML += participant[1] != "" ?
+                        '<img class="accordion-participant-img" src="' + participant[1] + '" name="' + participant[0] + '"></div>'
+                        : participant[0] + '</div>';
                 });
                 $(psIdPrefix + role).html(roleHTML);
 

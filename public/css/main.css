@@ -5329,8 +5329,35 @@ footer {
 
 .accordion-info-participants {
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .active-accordion-item {
- background-color: #F5534F;;
+ background-color: rgb(245,83,79);
+}
+
+
+.accordion-participant {
+  font-family: "GT-America-Medium";
+  font-size: 0.8em;
+  display: inline-grid;
+  margin: 0 2em 1em 0em;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  height: 4em;
+  background-color: rgba(245,83,79, 0.1);
+  padding: 1em;
+  border-radius: 20px;
+}
+
+.accordion-participant-img {
+  display: block;
+  height: 3em;
+  width: auto;
+  margin: auto;
+  margin-top: -0.5em;
+  align-items: center;
+  vertical-align: middle;
 }
