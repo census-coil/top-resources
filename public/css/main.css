@@ -5353,6 +5353,10 @@ footer {
   cursor: pointer;
 }
 
+.accordion-participant:hover {
+  background-color: rgba(245,83,79, 0.2);
+}
+
 .accordion-participant-img {
   display: block;
   height: 3em;
