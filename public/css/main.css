@@ -5280,6 +5280,7 @@ footer {
   overflow: hidden;
   position: relative;
   background-color: #F8E9E9;
+  display: none;
 }
 
 .accordion-item{
@@ -5334,7 +5335,7 @@ footer {
 }
 
 .accordion-info-agency {
-  font-style: italic;
+  /*font-style: italic;*/
 }
 
 .accordion-info-header {
@@ -5372,6 +5373,14 @@ footer {
   cursor: pointer;
 }
 
+#matrix-all > .accordion-info-participants > .accordion-participant {
+  background-color: rgba(28,31,129,0.05);
+}
+
+#matrix-all > .accordion-info-participants > .accordion-participant:hover {
+  background-color: rgba(28,31,129,0.1);
+}
+
 .accordion-participant:hover {
   background-color: rgba(245,83,79, 0.2);
 }
@@ -5393,27 +5402,34 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
+  display: block;
 }
 
-#matrix-fullscreen {
+#matrix-close {
   z-index: 90;
   position: absolute;
   top: 1em;
   right: 1em;
   font-size: 0.8em;
   border-radius: 0.5em;
-  background-color: #1c1f81;
+  background-color: rgb(28,31,129);
   padding: 0.3em;
   min-width: 80px;
   min-height: 50px;
 }
 
-#matrix-horizontal-accordion.fullscreen > #matrix-fullscreen {
-  z-index: 300;
+#matrix-expand {
+  border-radius: 0.5em;
+  background-color: rgba(28,31,129, 0.8);
+  padding: 0.3em 1em;
+  min-height: 50px;
+  float: right;
+  margin-bottom: 2em;
+  display: inline-block;
 }
 
-#matrix-fullscreen:hover {
-  background-color: #1c1f81;
+#matrix-expand:hover {
+  background-color: rgba(28, 31, 129, 1);
 }
 
 .accordion-info.fullscreen {

@@ -101,7 +101,7 @@ function progressBarSetup(){
             progressBar.addVisitedStep("Week " + i);
         }
 
-        for (var i = 1; i<13; i++) {
+        for (var i = activeWeek; i<13; i++) {
             progressBar.addStep("Week "+(i));
             // var currentStep = progressBar.getStep(i);
             // currentStep.onClick = onClick;
@@ -161,13 +161,19 @@ function matrixAccordion(){
     });
 
     //Fullscreen mode
-    $('#matrix-fullscreen').click(function(e){
+    $('#matrix-expand').click(function(e){
         $('#matrix-horizontal-accordion').toggleClass('fullscreen');
         $('.accordion-info').toggleClass('fullscreen');
         $('.accordion-item').toggleClass('fullscreen');
         $('.accordion-title').toggleClass('fullscreen');
-        buttonText = $("#matrix-fullscreen").text() == "Expand" ? "Close" : "Expand";
-        $('#matrix-fullscreen').text(buttonText);
+    });
+
+    // Close fullscreen mode
+    $('#matrix-close').click(function(e){
+        $('#matrix-horizontal-accordion').toggleClass('fullscreen');
+        $('.accordion-info').toggleClass('fullscreen');
+        $('.accordion-item').toggleClass('fullscreen');
+        $('.accordion-title').toggleClass('fullscreen');
     });
 
 
@@ -182,18 +188,34 @@ function matrixAccordion(){
             simpleSheet: true } )
     }
 
+    // Transform a participant into HTML
+    function getParticipantHTML(participant){
+        participantHTML = '<div class="accordion-participant">';
+        participantHTML += participant.url == "" ? "" : "<a href='" + participant.url + "'>";
+        participantHTML += participant.imgpath != "" ?
+            '<img class="accordion-participant-img" src="' + participant.imgpath + '" name="' + participant.name + '">'
+            : participant.name;
+        participantHTML += participant.url == "" ? "</div>" : "</a></div>";
+        return participantHTML;
+    }
 
     // Process and validate data, and create HTML for contents
     function loadProblemStatements(data, tabletop) {
-        problemStatements = {}
+        problemStatements = {};
+        allParticipants = {};
 
+        // Set up data structure
         problemLabels.forEach(function(label, i){
             psContents = {}
-            roles.forEach( function(l) {psContents[l]=[]; });
+            roles.forEach( function(l) {
+                psContents[l]=[];
+                allParticipants[l] = [];
+            });
             psContents["index"] = i;
             problemStatements[label] = psContents;
         });
 
+        // Reformat data into something more structured and load
         data.forEach( function(d){
             if (d["name"] != "" && d["problem-statement"] != "") {
                 participant = {}
@@ -201,9 +223,18 @@ function matrixAccordion(){
                 participant.imgpath = d["link-to-logo-img"];
                 participant.url = d["link-to-website"];
                 problemStatements[d["problem-statement"]][d["role"]].push(participant);
+                // Add to master list of participants if not already present, some names are duplicated
+                allParticipants[d["role"]].findIndex(x => x.name==d["name"]) === -1 ? allParticipants[d["role"]].push(participant) : console.log("already exists");
             }
         });
-        console.log(problemStatements);
+
+
+        // All participants content
+        roles.forEach(function(role) {
+            roleHTML = allParticipants[role].map(getParticipantHTML).join("");
+            $("#matrix-" + role).html(roleHTML);
+        });
+
 
         problemLabels.forEach( function(ps){
             index = problemStatements[ps]["index"];
@@ -211,20 +242,11 @@ function matrixAccordion(){
 
             roles.forEach(function(role) {
                 roleHTML = "";
-                if (role == "tech"){
-                    problemStatements[ps][role].forEach( function(participant) {
-                        roleHTML += '<div class="accordion-participant">';
-                        roleHTML += participant.url == "" ? "" : "<a href='" + participant.url + "'>";
-                        roleHTML += participant.imgpath != "" ?
-                            '<img class="accordion-participant-img" src="' + participant.imgpath + '" name="' + participant.name + '">'
-                            : participant.name;
-                        roleHTML += participant.url == "" ? "</div>" : "</a></div>";
-                    });
-                }
-                else {
+                if (role == "tech") {
+                    roleHTML += problemStatements[ps][role].map(getParticipantHTML).join("");
+                } else {
                     roleHTML += problemStatements[ps][role].map(function(participant){ return participant.name; }).join("<br>");
                 }
-
                 $(psIdPrefix + role).html(roleHTML);
 
                 if (problemStatements[ps][role].length == 0){
