@@ -235,7 +235,7 @@ function matrixAccordion(){
             if (role == "tech") {
                 roleHTML += allParticipants[role].map(getParticipantHTML).join("");
             } else {
-                roleHTML += allParticipants[role].map(function(participant){ return participant.name; }).join("<br>");
+                // roleHTML += allParticipants[role].map(function(participant){ return participant.name; }).join("<br>");
             }
             $("#matrix-" + role).html(roleHTML);
         });
