@@ -1576,6 +1576,7 @@ tr:nth-child(odd) {background-color: #f2f2f2;}
 
 .weekly-summaries-date {
   vertical-align: top;
+  font-size: 0.8em;
 }
 
 #weekly-summaries-progress {

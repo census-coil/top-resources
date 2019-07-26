@@ -75,7 +75,7 @@ function progressBarSetup(){
             + '&rarr;<br>Week '
             + week['week-number']
             + '</td><td>';
-            tableHTML += week["is-active"] == "TRUE" ?  '<h4><div class="blinking-circle"></div>This Week</h4>' : '';
+            tableHTML += week["is-active"] == "TRUE" ?  '<h4><!--div class="blinking-circle"--></div>This Week</h4>' : '';
             tableHTML += '<ul>';
 
             Object.keys(week['milestones']).forEach( function(m){
@@ -231,12 +231,18 @@ function matrixAccordion(){
 
         // All participants content
         roles.forEach(function(role) {
-            roleHTML = allParticipants[role].map(getParticipantHTML).join("");
+            roleHTML = "";
+            if (role == "tech") {
+                roleHTML += allParticipants[role].map(getParticipantHTML).join("");
+            } else {
+                roleHTML += allParticipants[role].map(function(participant){ return participant.name; }).join("<br>");
+            }
             $("#matrix-" + role).html(roleHTML);
         });
 
 
         problemLabels.forEach( function(ps){
+            console.log(ps);
             index = problemStatements[ps]["index"];
             psIdPrefix = "#accordion-" + index + "-";
 
