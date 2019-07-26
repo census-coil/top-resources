@@ -75,7 +75,7 @@ function progressBarSetup(){
             + '&rarr;<br>Week '
             + week['week-number']
             + '</td><td>';
-            tableHTML += week["is-active"] == "TRUE" ?  '<h4><!--div class="blinking-circle"--></div>This Week</h4>' : '';
+            tableHTML += week["is-active"] == "TRUE" ?  '<h4><div class="blinking-circle"></div>This Week</h4>' : '';
             tableHTML += '<ul>';
 
             Object.keys(week['milestones']).forEach( function(m){
