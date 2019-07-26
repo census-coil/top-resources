@@ -179,7 +179,7 @@ function matrixAccordion(){
 
     // Set up for Google Sheets integration
     var accordionBackendUrl = "https://docs.google.com/spreadsheets/d/1eRPECxenheM2PjDvj5lNOboW9I8okZMvNdAYOuGBzso/pubhtml";
-    var problemLabels = ["opp-zones", "pathways", "talent-modernization", "entrepreneurship"];
+    var problemLabels = ["opp-zones", "talent-modernization", "entrepreneurship", "pathways"];
     var roles = ["tech", "ua", "product"];
 
     function init() {
