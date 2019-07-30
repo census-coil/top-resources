@@ -5444,3 +5444,12 @@ footer {
 .accordion-item.fullscreen {
   height: 100vh;
 }
+
+.spacer {
+  margin-bottom: 20vh;
+}
+
+.data-title {
+  color: rgb(245,83,79);
+  font-weight: 800;
+}
