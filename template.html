@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+      Built by Civic Digital Fellows (https://codingitforward.com/)
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- TODO: Update the title of the web page to match the cohort -->
+    <title>_____ Cohort | The Opportunity Project</title>
+    <meta name="description" content="">
+    <link type="text/css" rel="stylesheet" href="public/css/main.css">
+    <!-- TODO: Update the custom css here-->
+    <!--<link type="text/css" rel="stylesheet" href="public/css/2020.css">-->
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/uswds.min.js"></script>
+    <link href="public/img/icon.png" rel="icon" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/js/slick/slick.css" charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="public/js/slick/slick-theme.css" charset="UTF-8"/>
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+</head>
+
+<body>
+<nav>
+    <div class="usa-grid-wide">
+        <div class="usa-width-one-whole">
+            <br>
+            <a id="logo" href="#index-splash-img">The Opportunity Project (Extra Resources)</a>
+            <div id="links">
+                <a href="#this-week">Weekly Info</a>
+                <a href="#resources">Resources</a>
+                <a href="#matrix">Meet the Tech Teams </a>
+                <a href="https://opportunity.census.gov" id="home-link"> Official Website &rarr;</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+
+<div class="splash" id="index-splash-img">
+    <div class="usa-grid" id="what-is">
+        <br><br><br><br><br><br>
+        <div class="usa-width-one-whole">
+            <!-- TODO: Update this to the correct cohort name-->
+            <h2 class="splash-text">Welcome to the ____ Cohort!</h2>
+            <p  class="splash-text">We're so excited to have you here. Use this website as a portal for supplemental information about the sprint process as it unfolds.  </p>
+        </div>
+    </div>
+</div>
+
+<section id="this-week" class="white-section">
+    <div class="usa-grid">
+        <div class="usa-width-one-whole">
+            <h2>TOP Weekly Summaries</h2>
+
+            <!--Progress Bar-->
+            <div id="weekly-summaries-progress"></div>
+
+            <!--Table with weekly information-->
+            <table id="weekly-summaries" class="usa-table-borderless">
+                <colgroup>
+                    <col style="width:20%; vertical-align:text-top">
+                    <col style="width:80%">
+                </colgroup>
+                <tbody id="weekly-summaries-tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<section id="resources" class="white-section">
+    <div class="usa-grid">
+        <div class="usa-width-one-whole">
+            <h2>Resources</h2><br>
+        </div>
+        <!-- TODO: Update these documents that are specific to the cohort -->
+        <div class="usa-width-one-half">
+            <h3> Supplemental Documents </h3>
+            <!--<div class="supplemental-document">-->
+                <!--<a href="public/data/2019_workforce_problem_statements.pdf">-->
+                    <!--<img class="supplemental-documents-icon" src="public/img/icon-office-document.png">-->
+                    <!--2020 Problem Statements-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="supplemental-document">-->
+                <!--<a href="public/data/2019_timeline.pdf">-->
+                    <!--<img class="supplemental-documents-icon" src="public/img/icon-office-document.png">-->
+                    <!--Timeline (subject to change)-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="supplemental-document">-->
+                <!--<a href="public/data/2019_ua.pdf">-->
+                    <!--<img class="supplemental-documents-icon" src="public/img/icon-office-document.png">-->
+                    <!--User Advocates Primer-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="supplemental-document">-->
+                <!--<a href="public/data/2019_tech.pdf">-->
+                    <!--<img class="supplemental-documents-icon" src="public/img/icon-office-document.png">-->
+                    <!--Tech Team Primer-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="supplemental-document">-->
+                <!--<a href="https://tinyurl.com/topworkforcedata">-->
+                    <!--<img class="supplemental-documents-icon" src="public/img/icon-office-document.png">-->
+                    <!--Suggested Data Resources (for all teams)-->
+                <!--</a>-->
+            <!--</div>-->
+        </div>
+        <div class="usa-width-one-half">
+            <h3> Supplemental Links </h3>
+            <div class="supplemental-document">
+                <a href="https://opportunity.census.gov/toolkit.html">
+                    <img class="supplemental-documents-icon" src="public/img/icon-link.png">
+                    Toolkit - The TOP Process
+                </a>
+            </div>
+            <div class="supplemental-document">
+                <a href="https://www.youtube.com/watch?v=36sdFlR1F-s">
+                    <img class="supplemental-documents-icon" src="public/img/icon-link.png">
+                    Demo Day - 2018 Sprints
+                </a>
+            </div>
+            <div class="supplemental-document">
+                <a href="https://opportunity.census.gov/projects.html">
+                    <img class="supplemental-documents-icon" src="public/img/icon-link.png">
+                    Past Projects
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="matrix" class="white-section usa-section">
+        <div class="usa-grid">
+            <div class="usa-width-one-whole">
+                <h2>Meet the teams building products in the sprint.</h2>
+                <p>Want to learn more about who's involved in this year's workforce cohort?</p>
+                <div>
+                    <button id="matrix-expand" name="Expand Matrix and Show Problem Statements">View by Problem Statement  &rarr;</button>
+                    <br><br><br>
+                    <div>
+
+                        <div id="matrix-all">
+                            <div class="accordion-info-header">Tech Teams</div>
+                            <div class="accordion-info-participants" id="matrix-tech"></div>
+                            <br>
+                            <div class="accordion-info-participants" id="matrix-ua"></div>
+                            <br>
+                            <div class="accordion-info-participants" id="matrix-product"></div>
+                        </div>
+
+
+                        <div id="matrix-horizontal-accordion">
+                            <button id="matrix-close" name = "Close Matrix Explorer" >Close</button>
+                            <div class="accordion-item active-accordion-item" id="accordion-item-0">
+                                <div class="accordion-title"><span>TODO: Problem Statement Name</span></div>
+                            </div>
+                            <div class="accordion-info">
+                                <div class="accordion-info-content">
+                                    <div class="accordion-info-title">TODO: Problem Statement Name</div>
+                                    <div class="accordion-info-agency">TODO: Agency</div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Challenge:</strong>
+                                        TODO: Fill in problem statement
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Problem Statement Leader:</strong>
+                                        TODO: Fill in person
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-0-tech-header">Tech Teams</div>
+                                    <div class="accordion-info-participants" id="accordion-0-tech"></div>
+                                    <div class="accordion-info-header" id="accordion-0-ua-header">User Advocates</div>
+                                    <div class="accordion-info-participants"  id="accordion-0-ua"></div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-0-product-header">Product Advisors</div>
+                                    <div class="accordion-info-participants" id="accordion-0-product"></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" id="accordion-item-1">
+                                <div class="accordion-title"><span>TODO: Problem Statement Name</span></div>
+                            </div>
+                            <div class="accordion-info">
+                                <div class="accordion-info-content">
+                                    <div class="accordion-info-title">TODO: Problem Statement Name</div>
+                                    <div class="accordion-info-agency">TODO: Agency</div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Challenge:</strong>
+                                        TODO: Fill in problem statement
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Problem Statement Leader:</strong>
+                                        TODO: Fill in person
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-1-tech-header">Tech Teams</div>
+                                    <div class="accordion-info-participants" id="accordion-1-tech"></div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-1-ua-header">User Advocates</div>
+                                    <div class="accordion-info-participants" id="accordion-1-ua"></div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-1-product-header">Product Advisors</div>
+                                    <div class="accordion-info-participants" id="accordion-1-product"></div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" id="accordion-item-2">
+                                <div class="accordion-title"><span>TODO: Problem Statement Name</span></div>
+                            </div>
+                            <div class="accordion-info">
+                                <div class="accordion-info-content">
+                                    <div class="accordion-info-title">TODO: Problem Statement Name</div>
+                                    <div class="accordion-info-agency">TODO: Agency</div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Challenge:</strong>
+                                        TODO: Fill in problem statement
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Problem Statement Leader:</strong>
+                                        TODO: Fill in person
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-2-tech-header">Tech Teams</div>
+                                    <div class="accordion-info-participants" id="accordion-2-tech"></div>
+                                    <br>
+                                    <div class="accordion-info-header"  id="accordion-2-ua-header">User Advocates</div>
+                                    <div class="accordion-info-participants" id="accordion-2-ua"></div>
+                                    <br>
+                                    <div class="accordion-info-header"  id="accordion-2-product-header">Product Advisors</div>
+                                    <div class="accordion-info-participants" id="accordion-2-product"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-item" id="accordion-item-3">
+                                <div class="accordion-title"><span>TODO: Problem Statement Name</span></div>
+                            </div>
+                            <div class="accordion-info">
+                                <div class="accordion-info-content">
+                                    <div class="accordion-info-title">TODO: Problem Statement Name</div>
+                                    <div class="accordion-info-agency">TODO: Agency</div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Challenge:</strong>
+                                        TODO: Fill in problem statement
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-agency"><strong>Problem Statement Leader:</strong>
+                                        TODO: Fill in person
+                                    </div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-3-tech-header">Tech Teams</div>
+                                    <div class="accordion-info-participants" id="accordion-3-tech"></div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-3-ua-header">User Advocates</div>
+                                    <div class="accordion-info-participants" id="accordion-3-ua"></div>
+                                    <br>
+                                    <div class="accordion-info-header" id="accordion-3-product-header">Product Advisors</div>
+                                    <div class="accordion-info-participants" id="accordion-3-product"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="splash" id="faq-splash-img">
+        <div class="usa-grid">
+            <br><br><br><br><br><br>
+            <div class="usa-width-one-half">
+                <h2 style="color: white;">
+                    Questions?
+                </h2>
+                <p> Reach out to our team through the form below, or on Slack. </p>
+                <a href="contact.html"><button class="clear-btn"> Sign Up for Updates </button></a>
+                <br><br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="usa-grid">
+            <div class="usa-width-one-whole">
+                <ul style="margin-top: 1em">
+                    <li>Site Map</li>
+                </ul>
+                <ul>
+                    <li>Resources</li>
+                    <li><a href="http://data.gov/">Data.gov</a></li>
+                    <li><a href="https://www.census.gov/privacy/">Data and Privacy Policy</a></li>
+                    <li><a href="https://github.com/uscensusbureau/opportunity">Visit Us on Github</a></li>
+                    <li><a href="contact.html">Get in Touch</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="public/js/smooth-scroll.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="public/js/slick/slick.min.js"></script>
+    <script src="public/js/raphael.js"></script>
+    <script src="public/js/progressStep.js"></script>
+    <script src="public/js/tabletop.min.js"></script>
+    <script src="public/js/main.js"></script>
+    <!-- TODO: Drop in the js file with your cohort's configurations -->
+    <!--<script src="public/js/2020.js"></script>-->
+</body>
+</html>

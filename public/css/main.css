@@ -1,4 +1,3 @@
-Open Sans/*! uswds @version */
 html {
   box-sizing: border-box; }
 
@@ -3679,14 +3678,6 @@ input[type=search] {
     .usa-search-submit-text {
       position: static; } }
 
-.usa-section {
-  padding-top: 3rem;
-  padding-bottom: 7rem; }
-  @media screen and (min-width: 600px) {
-    .usa-section {
-      padding-top: 6rem;
-      padding-bottom: 6rem; } }
-
 .usa-section-light {
   background-color: #f1f1f1; }
 
@@ -3851,9 +3842,8 @@ button {
 .gray-section h2 {
 }
 
-
-.white-section, .blue-section, .gray-section {
-  padding: 100px 0px;
+section {
+  padding: 10em 0em !important;
 }
 
 .white-section h1, .gray-section h1, .white-section h2, .gray-section h2, .white-section h3, .gray-section h3, .white-section h4, .gray-section h4, {
@@ -5452,4 +5442,18 @@ footer {
 .data-title {
   color: rgb(245,83,79);
   font-weight: 800;
+}
+
+#cohort-selection {
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#cohort-selection > h1 {
+  font-size: 3em;
+}
+
+#cohort-selection > a {
+  font-size: 2em;
 }

@@ -1,45 +1,6 @@
-$(document).ready(function(){
-    // Mobile breakpoints
-    $('#action-links-mobile').slick({
-        dots: true,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 375,
-                settings: {
-                    speed: 300,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    }),
-    $('#in-the-media-links-mobile').slick({
-        arrows: false,
-        dots: true,
-        responsive: [
-            {
-                breakpoint: 375,
-                settings: {
-                    speed: 300,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-
-    progressBarSetup();
-    matrixAccordion();
-});
-
-
-
-
 // Progress Bar Setup
-function progressBarSetup(){
+function progressBarSetup(publicSpreadsheetUrl){
     var activeWeek = -1;
-    var publicSpreadsheetUrl= "https://docs.google.com/spreadsheets/d/11b6Zm5Pl4AnnAQMHn7yrvyrsDmojHRzsgPYeLrJR90c/pubhtml";
 
     function init() {
         Tabletop.init( { key: publicSpreadsheetUrl,
@@ -71,10 +32,10 @@ function progressBarSetup(){
             tableHTML += '<tr ';
             tableHTML += week["is-active"] == "TRUE" ? 'class="active-week"' : "";
             tableHTML += '><td class="weekly-summaries-date">'
-            + week['week-dates']
-            + '&rarr;<br>Week '
-            + week['week-number']
-            + '</td><td>';
+                + week['week-dates']
+                + '&rarr;<br>Week '
+                + week['week-number']
+                + '</td><td>';
             tableHTML += week["is-active"] == "TRUE" ?  '<h4><div class="blinking-circle"></div>This Week</h4>' : '';
             tableHTML += '<ul>';
 
@@ -103,12 +64,6 @@ function progressBarSetup(){
 
         for (var i = activeWeek; i<13; i++) {
             progressBar.addStep("Week "+(i));
-            // var currentStep = progressBar.getStep(i);
-            // currentStep.onClick = onClick;
-            // currentStep.beforeEntry = beforeEntry;
-            // currentStep.afterEntry = afterEntry;
-            // currentStep.beforeExit = beforeExit;
-            // currentStep.afterExit = afterExit;
         }
 
         progressBar.refreshLayout();
@@ -116,32 +71,17 @@ function progressBarSetup(){
     }
 
     init();
-
-
-    function beforeEntry(){
-
-    }
-
-    function afterEntry(){
-
-    }
-
-    function beforeExit(){
-
-    }
-
-    function afterExit(){
-
-    }
-
-    function onClick(){
-
-    }
 }
 
 
 // Code for matrix accordion in the "Meet the Cohort" section
-function matrixAccordion(){
+// Accordion Backend Url is the specially formatted url to the Google Sheet with the participant info
+// Problem Labels is an ordered list of the problem statements descriptors we use in that spreadsheet (first column)
+// these labels must be an exact match with what is in the Google Doc
+function matrixAccordion(accordionBackendUrl, problemLabels){
+
+    var roles = ["tech", "ua", "product"];
+
     // Show, hide and slide for matrix interaction
     $('.accordion-info').first().show().animate({width: '80%'});
     $('.accordion-item').click(function () {
@@ -176,11 +116,6 @@ function matrixAccordion(){
         $('.accordion-title').toggleClass('fullscreen');
     });
 
-
-    // Set up for Google Sheets integration
-    var accordionBackendUrl = "https://docs.google.com/spreadsheets/d/1eRPECxenheM2PjDvj5lNOboW9I8okZMvNdAYOuGBzso/pubhtml";
-    var problemLabels = ["opp-zones", "talent-modernization", "entrepreneurship", "pathways"];
-    var roles = ["tech", "ua", "product"];
 
     function init() {
         Tabletop.init( { key: accordionBackendUrl,
@@ -223,6 +158,7 @@ function matrixAccordion(){
                 participant.imgpath = d["link-to-logo-img"];
                 participant.url = d["link-to-website"];
                 problemStatements[d["problem-statement"]][d["role"]].push(participant);
+
                 // Add to master list of participants if not already present, some names are duplicated
                 allParticipants[d["role"]].findIndex(x => x.name==d["name"]) === -1 ? allParticipants[d["role"]].push(participant) : console.log("already exists");
             }
@@ -234,8 +170,6 @@ function matrixAccordion(){
             roleHTML = "";
             if (role == "tech") {
                 roleHTML += allParticipants[role].map(getParticipantHTML).join("");
-            } else {
-                // roleHTML += allParticipants[role].map(function(participant){ return participant.name; }).join("<br>");
             }
             $("#matrix-" + role).html(roleHTML);
         });
